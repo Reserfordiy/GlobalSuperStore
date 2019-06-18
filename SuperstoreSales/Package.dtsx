@@ -11,8 +11,8 @@
   DTS:LocaleID="1049"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="52"
-  DTS:VersionGUID="{BAE71471-092E-438A-ACBD-B3B23B9F1F92}">
+  DTS:VersionBuild="56"
+  DTS:VersionGUID="{BF47F131-7E10-4F06-8CEA-466D8C9AA18E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -3880,7 +3880,7 @@ where [refTable].[name] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Задает список идентификаторов журнала обращений и преобразований, сопоставляемый с параметрами, которые использует инструкция SQL в свойстве SQLCommand. Элементы списка разделяются точками с запятой."
-                  name="ParameterMap">#{Package\Загрузка заказов\103:invalid};</property>
+                  name="ParameterMap">#{Package\Загрузка заказов\381:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Указывает кодовую страницу столбца, используемую, когда недоступны сведения о кодовой странице из источника данных."
@@ -4040,7 +4040,7 @@ where [refTable].[name] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Задает список идентификаторов журнала обращений и преобразований, сопоставляемый с параметрами, которые использует инструкция SQL в свойстве SQLCommand. Элементы списка разделяются точками с запятой."
-                  name="ParameterMap">#{Package\Загрузка заказов\98:invalid};</property>
+                  name="ParameterMap">#{Package\Загрузка заказов\382:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Указывает кодовую страницу столбца, используемую, когда недоступны сведения о кодовой странице из источника данных."
@@ -4200,7 +4200,7 @@ where [refTable].[name] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Задает список идентификаторов журнала обращений и преобразований, сопоставляемый с параметрами, которые использует инструкция SQL в свойстве SQLCommand. Элементы списка разделяются точками с запятой."
-                  name="ParameterMap">#{Package\Загрузка заказов\88:invalid};</property>
+                  name="ParameterMap">#{Package\Загрузка заказов\383:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Указывает кодовую страницу столбца, используемую, когда недоступны сведения о кодовой странице из источника данных."
@@ -8741,13 +8741,13 @@ where [refTable].[name] = ?</property>
                       cachedDataType="r8"
                       cachedName="Product Base Margin"
                       externalMetadataColumnId="Package\Загрузка продуктов\Выгрузка в продукты.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[base_margin]"
-                      lineageId="Package\Загрузка продуктов\Статистическое выражение.Outputs[Выход статистического выражения1].Columns[Product Base Margin]" />
+                      lineageId="Package\Загрузка продуктов\Группировка по продуктам.Outputs[Выход статистического выражения1].Columns[Product Base Margin]" />
                     <inputColumn
                       refId="Package\Загрузка продуктов\Выгрузка в продукты.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[Unit Price]"
                       cachedDataType="r8"
                       cachedName="Unit Price"
                       externalMetadataColumnId="Package\Загрузка продуктов\Выгрузка в продукты.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[unit_price]"
-                      lineageId="Package\Загрузка продуктов\Статистическое выражение.Outputs[Выход статистического выражения1].Columns[Unit Price]" />
+                      lineageId="Package\Загрузка продуктов\Группировка по продуктам.Outputs[Выход статистического выражения1].Columns[Unit Price]" />
                     <inputColumn
                       refId="Package\Загрузка продуктов\Выгрузка в продукты.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[Product Name]"
                       cachedCodepage="1251"
@@ -8755,7 +8755,7 @@ where [refTable].[name] = ?</property>
                       cachedLength="200"
                       cachedName="Product Name"
                       externalMetadataColumnId="Package\Загрузка продуктов\Выгрузка в продукты.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[name]"
-                      lineageId="Package\Загрузка продуктов\Статистическое выражение.Outputs[Выход статистического выражения1].Columns[Product Name]" />
+                      lineageId="Package\Загрузка продуктов\Группировка по продуктам.Outputs[Выход статистического выражения1].Columns[Product Name]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -8808,6 +8808,234 @@ where [refTable].[name] = ?</property>
                       lineageId="Package\Загрузка продуктов\Выгрузка в продукты.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Загрузка продуктов\Группировка по продуктам"
+              componentClassID="Microsoft.Aggregate"
+              contactInfo="Статистическое выражение;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;3"
+              description="Статистически обрабатывает данные с помощью таких функций, как Average, Sum, Count, Max и Min. Пример: группирование данных для вычисления общего объема продаж по продуктам или среднему количеству посещений в день."
+              name="Группировка по продуктам"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает приблизительное количество ключей group by, которые создаются в ходе статистической обработки. &quot;Низкое&quot; означает 500000 ключевых значений, &quot;Среднее&quot; означает 5 миллионов ключевых значений, а &quot;Высокое&quot; означает более 25 миллионов ключевых значений. Если значение не указано, то значение KeyScale не используется."
+                  name="KeyScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Указывает точное количество ключей Group by, которые создаются в ходе статистической обработки. Если указано значение KeyScale, приоритет имеет значение Keys."
+                  name="Keys" />
+                <property
+                  dataType="System.Int32"
+                  description="Указывает приблизительное количество различных значений в столбце, которые статистическая функция подсчитывает отдельно. &quot;Низкое&quot; означает 500000 значений ключа, &quot;Среднее&quot; означает 5 миллионов значений ключа, а &quot;Высокое&quot; означает более 25 миллионов значений ключа. Если значение не указано, свойство CountDistinctScale не используется."
+                  name="CountDistinctScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Указывает точное количество различных значений в столбце, которые статистическая функция подсчитывает отдельно. Если указано значение CountDistinctScale, приоритет имеет значение CountDistinctKeys."
+                  name="CountDistinctKeys" />
+                <property
+                  dataType="System.Int32"
+                  description="Указывает в процентах объем расширения памяти в ходе статистической обработки. Допустимые значения находятся в пределах от 1 до 100."
+                  name="AutoExtendFactor">25</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Загрузка продуктов\Группировка по продуктам.Inputs[Вход статистического выражения 1]"
+                  name="Вход статистического выражения 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Загрузка продуктов\Группировка по продуктам.Inputs[Вход статистического выражения 1].Columns[Product Name]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="Product Name"
+                      lineageId="Package\Загрузка продуктов\Загрузка из тех таблицы.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Product Name]" />
+                    <inputColumn
+                      refId="Package\Загрузка продуктов\Группировка по продуктам.Inputs[Вход статистического выражения 1].Columns[Unit Price]"
+                      cachedDataType="r8"
+                      cachedName="Unit Price"
+                      lineageId="Package\Загрузка продуктов\Загрузка из тех таблицы.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Unit Price]" />
+                    <inputColumn
+                      refId="Package\Загрузка продуктов\Группировка по продуктам.Inputs[Вход статистического выражения 1].Columns[Product Sub-Category]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Product Sub-Category"
+                      lineageId="Package\Загрузка продуктов\Загрузка из тех таблицы.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Product Sub-Category]" />
+                    <inputColumn
+                      refId="Package\Загрузка продуктов\Группировка по продуктам.Inputs[Вход статистического выражения 1].Columns[Product Container]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Product Container"
+                      lineageId="Package\Загрузка продуктов\Загрузка из тех таблицы.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Product Container]" />
+                    <inputColumn
+                      refId="Package\Загрузка продуктов\Группировка по продуктам.Inputs[Вход статистического выражения 1].Columns[Product Base Margin]"
+                      cachedDataType="r8"
+                      cachedName="Product Base Margin"
+                      lineageId="Package\Загрузка продуктов\Загрузка из тех таблицы.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Product Base Margin]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Загрузка продуктов\Группировка по продуктам.Outputs[Выход статистического выражения1]"
+                  name="Выход статистического выражения1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Указывает приблизительное количество ключей group by, которые создаются в ходе статистической обработки. &quot;Низкое&quot; означает 500000 ключевых значений, &quot;Среднее&quot; означает 5 миллионов ключевых значений, а &quot;Высокое&quot; означает более 25 миллионов ключевых значений. Если значение не указано, то значение KeyScale не используется."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Указывает точное количество ключей Group by, которые создаются в ходе статистической обработки. Если указано значение KeyScale, приоритет имеет значение Keys."
+                      name="Keys" />
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Загрузка продуктов\Группировка по продуктам.Outputs[Выход статистического выражения1].Columns[Product Name]"
+                      codePage="1251"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\Загрузка продуктов\Группировка по продуктам.Outputs[Выход статистического выражения1].Columns[Product Name]"
+                      name="Product Name">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Указывает идентификатор входного столбца, используемого в статистической обработке."
+                          name="AggregationColumnId">#{Package\Загрузка продуктов\Загрузка из тех таблицы.Outputs[Выход источника "OLE DB"].Columns[Product Name]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Указывает тип статистической обработки."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Указывает, необходима ли специальная обработка столбца, поскольку он может содержать данные слишком большого размера или требуется точность, превышающая точность данных типа float."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Указывает параметры сравнения строк."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Загрузка продуктов\Группировка по продуктам.Outputs[Выход статистического выражения1].Columns[Unit Price]"
+                      dataType="r8"
+                      lineageId="Package\Загрузка продуктов\Группировка по продуктам.Outputs[Выход статистического выражения1].Columns[Unit Price]"
+                      name="Unit Price">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Указывает идентификатор входного столбца, используемого в статистической обработке."
+                          name="AggregationColumnId">#{Package\Загрузка продуктов\Загрузка из тех таблицы.Outputs[Выход источника "OLE DB"].Columns[Unit Price]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Указывает тип статистической обработки."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Указывает, необходима ли специальная обработка столбца, поскольку он может содержать данные слишком большого размера или требуется точность, превышающая точность данных типа float."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Указывает параметры сравнения строк."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Загрузка продуктов\Группировка по продуктам.Outputs[Выход статистического выражения1].Columns[Product Sub-Category]"
+                      codePage="1251"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Загрузка продуктов\Группировка по продуктам.Outputs[Выход статистического выражения1].Columns[Product Sub-Category]"
+                      name="Product Sub-Category">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Указывает идентификатор входного столбца, используемого в статистической обработке."
+                          name="AggregationColumnId">#{Package\Загрузка продуктов\Загрузка из тех таблицы.Outputs[Выход источника "OLE DB"].Columns[Product Sub-Category]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Указывает тип статистической обработки."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Указывает, необходима ли специальная обработка столбца, поскольку он может содержать данные слишком большого размера или требуется точность, превышающая точность данных типа float."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Указывает параметры сравнения строк."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Загрузка продуктов\Группировка по продуктам.Outputs[Выход статистического выражения1].Columns[Product Container]"
+                      codePage="1251"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Загрузка продуктов\Группировка по продуктам.Outputs[Выход статистического выражения1].Columns[Product Container]"
+                      name="Product Container">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Указывает идентификатор входного столбца, используемого в статистической обработке."
+                          name="AggregationColumnId">#{Package\Загрузка продуктов\Загрузка из тех таблицы.Outputs[Выход источника "OLE DB"].Columns[Product Container]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Указывает тип статистической обработки."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Указывает, необходима ли специальная обработка столбца, поскольку он может содержать данные слишком большого размера или требуется точность, превышающая точность данных типа float."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Указывает параметры сравнения строк."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Загрузка продуктов\Группировка по продуктам.Outputs[Выход статистического выражения1].Columns[Product Base Margin]"
+                      dataType="r8"
+                      lineageId="Package\Загрузка продуктов\Группировка по продуктам.Outputs[Выход статистического выражения1].Columns[Product Base Margin]"
+                      name="Product Base Margin">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Указывает идентификатор входного столбца, используемого в статистической обработке."
+                          name="AggregationColumnId">#{Package\Загрузка продуктов\Загрузка из тех таблицы.Outputs[Выход источника "OLE DB"].Columns[Product Base Margin]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Указывает тип статистической обработки."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Указывает, необходима ли специальная обработка столбца, поскольку он может содержать данные слишком большого размера или требуется точность, превышающая точность данных типа float."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Указывает параметры сравнения строк."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -9108,7 +9336,7 @@ where [refTable].[name] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Задает список идентификаторов журнала обращений и преобразований, сопоставляемый с параметрами, которые использует инструкция SQL в свойстве SQLCommand. Элементы списка разделяются точками с запятой."
-                  name="ParameterMap">#{Package\Загрузка продуктов\Статистическое выражение.Outputs[Выход статистического выражения1].Columns[Product Sub-Category]};</property>
+                  name="ParameterMap">#{Package\Загрузка продуктов\Группировка по продуктам.Outputs[Выход статистического выражения1].Columns[Product Sub-Category]};</property>
                 <property
                   dataType="System.Int32"
                   description="Указывает кодовую страницу столбца, используемую, когда недоступны сведения о кодовой странице из источника данных."
@@ -9137,7 +9365,7 @@ where [refTable].[name] = ?</property>
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="Product Sub-Category"
-                      lineageId="Package\Загрузка продуктов\Статистическое выражение.Outputs[Выход статистического выражения1].Columns[Product Sub-Category]">
+                      lineageId="Package\Загрузка продуктов\Группировка по продуктам.Outputs[Выход статистического выражения1].Columns[Product Sub-Category]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -9268,7 +9496,7 @@ where [refTable].[name] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Задает список идентификаторов журнала обращений и преобразований, сопоставляемый с параметрами, которые использует инструкция SQL в свойстве SQLCommand. Элементы списка разделяются точками с запятой."
-                  name="ParameterMap">#{Package\Загрузка продуктов\Статистическое выражение.Outputs[Выход статистического выражения1].Columns[Product Container]};</property>
+                  name="ParameterMap">#{Package\Загрузка продуктов\Группировка по продуктам.Outputs[Выход статистического выражения1].Columns[Product Container]};</property>
                 <property
                   dataType="System.Int32"
                   description="Указывает кодовую страницу столбца, используемую, когда недоступны сведения о кодовой странице из источника данных."
@@ -9297,7 +9525,7 @@ where [refTable].[name] = ?</property>
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="Product Container"
-                      lineageId="Package\Загрузка продуктов\Статистическое выражение.Outputs[Выход статистического выражения1].Columns[Product Container]">
+                      lineageId="Package\Загрузка продуктов\Группировка по продуктам.Outputs[Выход статистического выражения1].Columns[Product Container]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -9371,234 +9599,6 @@ where [refTable].[name] = ?</property>
                 </output>
               </outputs>
             </component>
-            <component
-              refId="Package\Загрузка продуктов\Статистическое выражение"
-              componentClassID="Microsoft.Aggregate"
-              contactInfo="Статистическое выражение;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;3"
-              description="Статистически обрабатывает данные с помощью таких функций, как Average, Sum, Count, Max и Min. Пример: группирование данных для вычисления общего объема продаж по продуктам или среднему количеству посещений в день."
-              name="Статистическое выражение"
-              version="3">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Указывает приблизительное количество ключей group by, которые создаются в ходе статистической обработки. &quot;Низкое&quot; означает 500000 ключевых значений, &quot;Среднее&quot; означает 5 миллионов ключевых значений, а &quot;Высокое&quot; означает более 25 миллионов ключевых значений. Если значение не указано, то значение KeyScale не используется."
-                  name="KeyScale"
-                  typeConverter="KeyScaleType">0</property>
-                <property
-                  dataType="System.Null"
-                  description="Указывает точное количество ключей Group by, которые создаются в ходе статистической обработки. Если указано значение KeyScale, приоритет имеет значение Keys."
-                  name="Keys" />
-                <property
-                  dataType="System.Int32"
-                  description="Указывает приблизительное количество различных значений в столбце, которые статистическая функция подсчитывает отдельно. &quot;Низкое&quot; означает 500000 значений ключа, &quot;Среднее&quot; означает 5 миллионов значений ключа, а &quot;Высокое&quot; означает более 25 миллионов значений ключа. Если значение не указано, свойство CountDistinctScale не используется."
-                  name="CountDistinctScale"
-                  typeConverter="KeyScaleType">0</property>
-                <property
-                  dataType="System.Null"
-                  description="Указывает точное количество различных значений в столбце, которые статистическая функция подсчитывает отдельно. Если указано значение CountDistinctScale, приоритет имеет значение CountDistinctKeys."
-                  name="CountDistinctKeys" />
-                <property
-                  dataType="System.Int32"
-                  description="Указывает в процентах объем расширения памяти в ходе статистической обработки. Допустимые значения находятся в пределах от 1 до 100."
-                  name="AutoExtendFactor">25</property>
-              </properties>
-              <inputs>
-                <input
-                  refId="Package\Загрузка продуктов\Статистическое выражение.Inputs[Вход статистического выражения 1]"
-                  name="Вход статистического выражения 1">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Загрузка продуктов\Статистическое выражение.Inputs[Вход статистического выражения 1].Columns[Product Name]"
-                      cachedCodepage="1251"
-                      cachedDataType="str"
-                      cachedLength="200"
-                      cachedName="Product Name"
-                      lineageId="Package\Загрузка продуктов\Загрузка из тех таблицы.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Product Name]" />
-                    <inputColumn
-                      refId="Package\Загрузка продуктов\Статистическое выражение.Inputs[Вход статистического выражения 1].Columns[Unit Price]"
-                      cachedDataType="r8"
-                      cachedName="Unit Price"
-                      lineageId="Package\Загрузка продуктов\Загрузка из тех таблицы.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Unit Price]" />
-                    <inputColumn
-                      refId="Package\Загрузка продуктов\Статистическое выражение.Inputs[Вход статистического выражения 1].Columns[Product Sub-Category]"
-                      cachedCodepage="1251"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Product Sub-Category"
-                      lineageId="Package\Загрузка продуктов\Загрузка из тех таблицы.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Product Sub-Category]" />
-                    <inputColumn
-                      refId="Package\Загрузка продуктов\Статистическое выражение.Inputs[Вход статистического выражения 1].Columns[Product Container]"
-                      cachedCodepage="1251"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Product Container"
-                      lineageId="Package\Загрузка продуктов\Загрузка из тех таблицы.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Product Container]" />
-                    <inputColumn
-                      refId="Package\Загрузка продуктов\Статистическое выражение.Inputs[Вход статистического выражения 1].Columns[Product Base Margin]"
-                      cachedDataType="r8"
-                      cachedName="Product Base Margin"
-                      lineageId="Package\Загрузка продуктов\Загрузка из тех таблицы.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Product Base Margin]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Загрузка продуктов\Статистическое выражение.Outputs[Выход статистического выражения1]"
-                  name="Выход статистического выражения1">
-                  <properties>
-                    <property
-                      dataType="System.Int32"
-                      description="Указывает приблизительное количество ключей group by, которые создаются в ходе статистической обработки. &quot;Низкое&quot; означает 500000 ключевых значений, &quot;Среднее&quot; означает 5 миллионов ключевых значений, а &quot;Высокое&quot; означает более 25 миллионов ключевых значений. Если значение не указано, то значение KeyScale не используется."
-                      name="KeyScale"
-                      typeConverter="KeyScaleType">0</property>
-                    <property
-                      dataType="System.Null"
-                      description="Указывает точное количество ключей Group by, которые создаются в ходе статистической обработки. Если указано значение KeyScale, приоритет имеет значение Keys."
-                      name="Keys" />
-                  </properties>
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Загрузка продуктов\Статистическое выражение.Outputs[Выход статистического выражения1].Columns[Product Name]"
-                      codePage="1251"
-                      dataType="str"
-                      length="200"
-                      lineageId="Package\Загрузка продуктов\Статистическое выражение.Outputs[Выход статистического выражения1].Columns[Product Name]"
-                      name="Product Name">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Указывает идентификатор входного столбца, используемого в статистической обработке."
-                          name="AggregationColumnId">#{Package\Загрузка продуктов\Загрузка из тех таблицы.Outputs[Выход источника "OLE DB"].Columns[Product Name]}</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Указывает тип статистической обработки."
-                          name="AggregationType"
-                          typeConverter="AggregationType">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Указывает, необходима ли специальная обработка столбца, поскольку он может содержать данные слишком большого размера или требуется точность, превышающая точность данных типа float."
-                          name="IsBig">1</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Указывает параметры сравнения строк."
-                          name="AggregationComparisonFlags">0</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Загрузка продуктов\Статистическое выражение.Outputs[Выход статистического выражения1].Columns[Unit Price]"
-                      dataType="r8"
-                      lineageId="Package\Загрузка продуктов\Статистическое выражение.Outputs[Выход статистического выражения1].Columns[Unit Price]"
-                      name="Unit Price">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Указывает идентификатор входного столбца, используемого в статистической обработке."
-                          name="AggregationColumnId">#{Package\Загрузка продуктов\Загрузка из тех таблицы.Outputs[Выход источника "OLE DB"].Columns[Unit Price]}</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Указывает тип статистической обработки."
-                          name="AggregationType"
-                          typeConverter="AggregationType">4</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Указывает, необходима ли специальная обработка столбца, поскольку он может содержать данные слишком большого размера или требуется точность, превышающая точность данных типа float."
-                          name="IsBig">1</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Указывает параметры сравнения строк."
-                          name="AggregationComparisonFlags">0</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Загрузка продуктов\Статистическое выражение.Outputs[Выход статистического выражения1].Columns[Product Sub-Category]"
-                      codePage="1251"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\Загрузка продуктов\Статистическое выражение.Outputs[Выход статистического выражения1].Columns[Product Sub-Category]"
-                      name="Product Sub-Category">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Указывает идентификатор входного столбца, используемого в статистической обработке."
-                          name="AggregationColumnId">#{Package\Загрузка продуктов\Загрузка из тех таблицы.Outputs[Выход источника "OLE DB"].Columns[Product Sub-Category]}</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Указывает тип статистической обработки."
-                          name="AggregationType"
-                          typeConverter="AggregationType">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Указывает, необходима ли специальная обработка столбца, поскольку он может содержать данные слишком большого размера или требуется точность, превышающая точность данных типа float."
-                          name="IsBig">1</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Указывает параметры сравнения строк."
-                          name="AggregationComparisonFlags">0</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Загрузка продуктов\Статистическое выражение.Outputs[Выход статистического выражения1].Columns[Product Container]"
-                      codePage="1251"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\Загрузка продуктов\Статистическое выражение.Outputs[Выход статистического выражения1].Columns[Product Container]"
-                      name="Product Container">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Указывает идентификатор входного столбца, используемого в статистической обработке."
-                          name="AggregationColumnId">#{Package\Загрузка продуктов\Загрузка из тех таблицы.Outputs[Выход источника "OLE DB"].Columns[Product Container]}</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Указывает тип статистической обработки."
-                          name="AggregationType"
-                          typeConverter="AggregationType">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Указывает, необходима ли специальная обработка столбца, поскольку он может содержать данные слишком большого размера или требуется точность, превышающая точность данных типа float."
-                          name="IsBig">1</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Указывает параметры сравнения строк."
-                          name="AggregationComparisonFlags">0</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Загрузка продуктов\Статистическое выражение.Outputs[Выход статистического выражения1].Columns[Product Base Margin]"
-                      dataType="r8"
-                      lineageId="Package\Загрузка продуктов\Статистическое выражение.Outputs[Выход статистического выражения1].Columns[Product Base Margin]"
-                      name="Product Base Margin">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Указывает идентификатор входного столбца, используемого в статистической обработке."
-                          name="AggregationColumnId">#{Package\Загрузка продуктов\Загрузка из тех таблицы.Outputs[Выход источника "OLE DB"].Columns[Product Base Margin]}</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Указывает тип статистической обработки."
-                          name="AggregationType"
-                          typeConverter="AggregationType">4</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Указывает, необходима ли специальная обработка столбца, поскольку он может содержать данные слишком большого размера или требуется точность, превышающая точность данных типа float."
-                          name="IsBig">1</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Указывает параметры сравнения строк."
-                          name="AggregationComparisonFlags">0</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
           </components>
           <paths>
             <path
@@ -9613,14 +9613,14 @@ where [refTable].[name] = ?</property>
               startId="Package\Загрузка продуктов\Соединение с подкатегориями.Outputs[Вывод совпадений преобразования &quot;Уточняющий запрос&quot;]" />
             <path
               refId="Package\Загрузка продуктов.Paths[Выход источника &quot;OLE DB&quot;]"
-              endId="Package\Загрузка продуктов\Статистическое выражение.Inputs[Вход статистического выражения 1]"
+              endId="Package\Загрузка продуктов\Группировка по продуктам.Inputs[Вход статистического выражения 1]"
               name="Выход источника &quot;OLE DB&quot;"
               startId="Package\Загрузка продуктов\Загрузка из тех таблицы.Outputs[Выход источника &quot;OLE DB&quot;]" />
             <path
               refId="Package\Загрузка продуктов.Paths[Выход статистического выражения1]"
               endId="Package\Загрузка продуктов\Соединение с типом контейнеров.Inputs[Ввод преобразования &quot;Уточняющий запрос&quot;]"
               name="Выход статистического выражения1"
-              startId="Package\Загрузка продуктов\Статистическое выражение.Outputs[Выход статистического выражения1]" />
+              startId="Package\Загрузка продуктов\Группировка по продуктам.Outputs[Выход статистического выражения1]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -12984,6 +12984,18 @@ where [refTable].[name] = ?</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="188.8,41.6"
+          Id="Package\Загрузка даты заказа"
+          TopLeft="536.153865819853,377.838703865564" />
+        <NodeLayout
+          Size="204,41.6"
+          Id="Package\Загрузка даты разгрузки"
+          TopLeft="295.384626219259,379.212898955608" />
+        <NodeLayout
+          Size="166.4,41.6"
+          Id="Package\Загрузка заказов"
+          TopLeft="58.076925207172,377.838703865563" />
+        <NodeLayout
           Size="264.8,41.6"
           Id="Package\Загрузка категории важности заказа"
           TopLeft="111.538465629668,234.767743012709" />
@@ -13004,9 +13016,17 @@ where [refTable].[name] = ?</property>
           Id="Package\Загрузка покупателей"
           TopLeft="573.333354363076,165.901074279748" />
         <NodeLayout
+          Size="180.8,41.6"
+          Id="Package\Загрузка провинций"
+          TopLeft="534.230788826238,307.451608420163" />
+        <NodeLayout
           Size="178.4,41.6"
           Id="Package\Загрузка продуктов"
-          TopLeft="35.0000012837923,167.322578071432" />
+          TopLeft="33.4615396889004,162.290320084321" />
+        <NodeLayout
+          Size="172.8,41.6"
+          Id="Package\Загрузка регионов"
+          TopLeft="301.153857200104,310.322576071792" />
         <NodeLayout
           Size="278.4,41.6"
           Id="Package\Загрузка технической таблицы заказов"
@@ -13084,6 +13104,116 @@ where [refTable].[name] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package.PrecedenceConstraints[Ограничение 10]"
+          TopLeft="229.25641118281,331.30859903712">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="71.8974460172936,0"
+              Start="0,0"
+              End="64.3974460172936,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="64.3974460172936,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Ограничение 11]"
+          TopLeft="473.953857200104,329.687092245977">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="60.2769316261335,0"
+              Start="0,0"
+              End="52.7769316261335,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="52.7769316261335,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Ограничение 12]"
+          TopLeft="627.592327323045,349.051608420163">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28.7870954454008"
+              Start="0,0"
+              End="0,21.2870954454008">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.2870954454008" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Ограничение 13]"
+          TopLeft="536.153865819853,399.325801410586">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-36.7692396005939,0"
+              Start="0,0"
+              End="-29.2692396005939,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-29.2692396005939,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Ограничение 14]"
+          TopLeft="295.384626219259,399.325801410586">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-70.9077010120867,0"
+              Start="0,0"
+              End="-63.4077010120867,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-63.4077010120867,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package.PrecedenceConstraints[Ограничение 2]"
           TopLeft="543.769250714568,112.512901815093">
           <EdgeLayout.Curve>
@@ -13129,18 +13259,18 @@ where [refTable].[name] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Ограничение 4]"
-          TopLeft="126.930770211248,133.438708264771">
+          TopLeft="126.161539413802,133.438708264771">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,33.8838698066608"
+              EndConnector="0,28.8516118195505"
               Start="0,0"
-              End="0,26.3838698066608">
+              End="0,21.3516118195505">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.3838698066608" />
+                    End="0,21.3516118195505" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -13151,18 +13281,40 @@ where [refTable].[name] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Ограничение 5]"
-          TopLeft="213.400001283792,186.864513574654">
+          TopLeft="211.8615396889,184.348384581099">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="48.9077006452891,0"
+              EndConnector="50.4461622401807,0"
               Start="0,0"
-              End="41.4077006452891,0">
+              End="42.9461622401807,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="41.4077006452891,0" />
+                    End="42.9461622401807,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Ограничение 6]"
+          TopLeft="540.707701929081,186.153761678812">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="32.6256524339943,0"
+              Start="0,0"
+              End="25.1256524339943,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="25.1256524339943,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -13197,28 +13349,6 @@ where [refTable].[name] = ?</property>
                     Point3="-69.2256445478413,19.5784964082806" />
                   <mssgle:LineSegment
                     End="-69.2256445478413,23.6569928165613" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Ограничение 6]"
-          TopLeft="540.707701929081,186.153761678812">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="32.6256524339943,0"
-              Start="0,0"
-              End="25.1256524339943,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="25.1256524339943,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -13283,178 +13413,831 @@ where [refTable].[name] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="172.8,41.6"
-          Id="Package\Загрузка регионов"
-          TopLeft="301.153857200104,310.322576071792" />
-        <NodeLayout
-          Size="180.8,41.6"
-          Id="Package\Загрузка провинций"
-          TopLeft="534.230788826238,307.451608420163" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Ограничение 10]"
-          TopLeft="229.25641118281,331.30859903712">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="71.8974460172936,0"
-              Start="0,0"
-              End="64.3974460172936,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="64.3974460172936,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Ограничение 11]"
-          TopLeft="473.953857200104,329.687092245977">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="60.2769316261335,0"
-              Start="0,0"
-              End="52.7769316261335,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="52.7769316261335,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="188.8,41.6"
-          Id="Package\Загрузка даты заказа"
-          TopLeft="536.153865819853,377.838703865564" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Ограничение 12]"
-          TopLeft="627.592327323045,349.051608420163">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,28.7870954454008"
-              Start="0,0"
-              End="0,21.2870954454008">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.2870954454008" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="204,41.6"
-          Id="Package\Загрузка даты разгрузки"
-          TopLeft="295.384626219259,379.212898955608" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Ограничение 13]"
-          TopLeft="536.153865819853,399.325801410586">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-36.7692396005939,0"
-              Start="0,0"
-              End="-29.2692396005939,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-29.2692396005939,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="166.4,41.6"
-          Id="Package\Загрузка заказов"
-          TopLeft="58.076925207172,377.838703865563" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Ограничение 14]"
-          TopLeft="295.384626219259,399.325801410586">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-70.9077010120867,0"
-              Start="0,0"
-              End="-63.4077010120867,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-63.4077010120867,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
   <TaskHost
+    design-time-name="Package\Загрузка даты заказа">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="244,41.6"
+          Id="Package\Загрузка даты заказа\Загрузка данных из тех таблицы"
+          TopLeft="291.2,42" />
+        <NodeLayout
+          Size="219.2,41.6"
+          Id="Package\Загрузка даты заказа\Статистическое выражение"
+          TopLeft="299.2,180.8" />
+        <NodeLayout
+          Size="153.6,41.6"
+          Id="Package\Загрузка даты заказа\Выгрузка даты"
+          TopLeft="334,256.8" />
+        <NodeLayout
+          Size="213.6,41.6"
+          Id="Package\Загрузка даты заказа\Разделение даты на части"
+          TopLeft="307.6,108" />
+        <EdgeLayout
+          Id="Package\Загрузка даты заказа.Paths[Выход статистического выражения1]"
+          TopLeft="409.8,222.4">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.4"
+              Start="0,0"
+              End="0,26.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Загрузка даты заказа.Paths[Выход производного столбца]"
+          TopLeft="411.6,149.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31.2"
+              Start="0,0"
+              End="0,23.7">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.7" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Загрузка даты заказа.Paths[Выход источника &quot;OLE DB&quot;]"
+          TopLeft="413.8,83.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,24.4"
+              Start="0,0"
+              End="0,16.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Загрузка даты заказа\Загрузка данных из тех таблицы">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Загрузка даты заказа\Выгрузка даты">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Загрузка даты разгрузки">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="244,41.6"
+          Id="Package\Загрузка даты разгрузки\Загрузка данных из тех таблицы"
+          TopLeft="291.2,42" />
+        <NodeLayout
+          Size="219.2,41.6"
+          Id="Package\Загрузка даты разгрузки\Статистическое выражение"
+          TopLeft="299.2,180.8" />
+        <NodeLayout
+          Size="153.6,41.6"
+          Id="Package\Загрузка даты разгрузки\Выгрузка даты"
+          TopLeft="334,256.8" />
+        <NodeLayout
+          Size="213.6,41.6"
+          Id="Package\Загрузка даты разгрузки\Разделение даты на части"
+          TopLeft="307.6,108" />
+        <EdgeLayout
+          Id="Package\Загрузка даты разгрузки.Paths[Выход статистического выражения1]"
+          TopLeft="409.8,222.4">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.4"
+              Start="0,0"
+              End="0,26.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Загрузка даты разгрузки.Paths[Выход производного столбца]"
+          TopLeft="411.6,149.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31.2"
+              Start="0,0"
+              End="0,23.7">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.7" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Загрузка даты разгрузки.Paths[Выход источника &quot;OLE DB&quot;]"
+          TopLeft="413.8,83.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,24.4"
+              Start="0,0"
+              End="0,16.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Загрузка даты разгрузки\Загрузка данных из тех таблицы">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Загрузка даты разгрузки\Выгрузка даты">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Загрузка заказов">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="203.2,41.6"
+          Id="Package\Загрузка заказов\Загрузка из тех таблицы"
+          TopLeft="104.8,46.8" />
+        <NodeLayout
+          Size="229.6,41.6"
+          Id="Package\Загрузка заказов\Соединение с датой доставки"
+          TopLeft="113.2,289.2" />
+        <NodeLayout
+          Size="218.4,41.6"
+          Id="Package\Загрузка заказов\Соединение с датой заказа"
+          TopLeft="665.6,47.6000000000001" />
+        <NodeLayout
+          Size="203.2,41.6"
+          Id="Package\Загрузка заказов\Выгрузка фактов заказа"
+          TopLeft="654.755555555555,402.355555555556" />
+        <NodeLayout
+          Size="212,41.6"
+          Id="Package\Загрузка заказов\Соединение с провинцией"
+          TopLeft="658.4,212.4" />
+        <NodeLayout
+          Size="240,41.6"
+          Id="Package\Загрузка заказов\Соединение с приоритетностью"
+          TopLeft="659.6,126.4" />
+        <NodeLayout
+          Size="364,41.6"
+          Id="Package\Загрузка заказов\Первичное соединение с продуктом (через тех таблицу)"
+          TopLeft="52.7999999999999,370.8" />
+        <NodeLayout
+          Size="231.2,41.6"
+          Id="Package\Загрузка заказов\Соединение с типом доставки"
+          TopLeft="648,290.8" />
+        <NodeLayout
+          Size="291.2,41.6"
+          Id="Package\Загрузка заказов\Соединение с покупательским сегментом"
+          TopLeft="75.2,213.2" />
+        <NodeLayout
+          Size="213.6,41.6"
+          Id="Package\Загрузка заказов\Разделение даты на части"
+          TopLeft="383.6,45.6000000000001" />
+        <NodeLayout
+          Size="360.8,41.6"
+          Id="Package\Загрузка заказов\Вторичное соединение с продуктом (через справочник)"
+          TopLeft="51.7333333333334,452.222222222222" />
+        <NodeLayout
+          Size="217.6,41.6"
+          Id="Package\Загрузка заказов\Соединение с покупателем"
+          TopLeft="105.6,120" />
+        <EdgeLayout
+          Id="Package\Загрузка заказов.Paths[Вывод совпадений преобразования &quot;Уточняющий запрос&quot;3]"
+          TopLeft="366.4,233.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="292,0"
+              Start="0,0"
+              End="284.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="284.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="7.56013671874999,5,269.3797265625,12"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Загрузка заказов.Paths[Вывод совпадений преобразования &quot;Уточняющий запрос&quot;2]"
+          TopLeft="217.6,161.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.6000000000001"
+              Start="0,0"
+              End="0,44.1000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.1000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-134.68986328125,16.0500000000001,269.3797265625,12"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Загрузка заказов.Paths[Вывод совпадений преобразования &quot;Уточняющий запрос&quot;1]"
+          TopLeft="659.6,144">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-336.4,0"
+              Start="0,0"
+              End="-328.9,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-328.9,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-299.13986328125,5,269.3797265625,12"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Загрузка заказов.Paths[Вывод совпадений преобразования &quot;Уточняющий запрос&quot;]"
+          TopLeft="777.2,89.2000000000001">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.1999999999999"
+              Start="0,0"
+              End="0,29.6999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.6999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-134.68986328125,8.84999999999995,269.3797265625,12"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Загрузка заказов.Paths[Выход производного столбца]"
+          TopLeft="597.2,67.4000000000001">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="68.4000000000001,0"
+              Start="0,0"
+              End="60.9000000000001,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="60.9000000000001,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Загрузка заказов.Paths[Выход источника &quot;OLE DB&quot;]"
+          TopLeft="308,67">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="75.6,0"
+              Start="0,0"
+              End="68.1,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="68.1,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Загрузка заказов.Paths[Вывод совпадений преобразования &quot;Уточняющий запрос&quot;8]"
+          TopLeft="412.533333333333,473.022222222222">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="242.222222222222,-49.8666666666663"
+              Start="0,0"
+              End="234.722222222222,-49.8666666666663">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="117.111111111111,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="117.111111111111,0"
+                    Point2="121.111111111111,0"
+                    Point3="121.111111111111,-4" />
+                  <mssgle:LineSegment
+                    End="121.111111111111,-45.8666666666663" />
+                  <mssgle:CubicBezierSegment
+                    Point1="121.111111111111,-45.8666666666663"
+                    Point2="121.111111111111,-49.8666666666663"
+                    Point3="125.111111111111,-49.8666666666663" />
+                  <mssgle:LineSegment
+                    End="234.722222222222,-49.8666666666663" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-13.578752170139,1,269.3797265625,12"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Загрузка заказов.Paths[Вывод совпадений преобразования &quot;Уточняющий запрос&quot;7]"
+          TopLeft="233.466666666667,412.4">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.8222222222221"
+              Start="0,0"
+              End="0,32.3222222222221">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.3222222222221" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-134.68986328125,10.1611111111111,269.3797265625,12"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Загрузка заказов.Paths[Вывод совпадений преобразования &quot;Уточняющий запрос&quot;6]"
+          TopLeft="231.4,330.8">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40"
+              Start="0,0"
+              End="0,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-134.68986328125,10.25,269.3797265625,12"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Загрузка заказов.Paths[Вывод совпадений преобразования &quot;Уточняющий запрос&quot;5]"
+          TopLeft="648,310.8">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-305.2,0"
+              Start="0,0"
+              End="-297.7,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-297.7,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-283.53986328125,5,269.3797265625,12"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Загрузка заказов.Paths[Вывод совпадений преобразования &quot;Уточняющий запрос&quot;4]"
+          TopLeft="764,254">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.8"
+              Start="0,0"
+              End="0,29.3">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.3" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-134.68986328125,8.65,269.3797265625,12"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Загрузка заказов\Соединение с типом доставки">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimShipMode]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Загрузка заказов\Соединение с покупательским сегментом">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimCustomerSegment]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Загрузка заказов\Соединение с провинцией">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimProvince]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Загрузка заказов\Первичное соединение с продуктом (через тех таблицу)">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Trash_Products]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Загрузка заказов\Выгрузка фактов заказа">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Загрузка заказов\Соединение с датой заказа">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimOrderDate]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Загрузка заказов\Соединение с покупателем">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimCustomer]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Загрузка заказов\Соединение с приоритетностью">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimOrderPriority]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Загрузка заказов\Загрузка из тех таблицы">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Загрузка заказов\Вторичное соединение с продуктом (через справочник)">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimProduct]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Загрузка заказов\Соединение с датой доставки">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimShipDate]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
     design-time-name="Package\Загрузка категории важности заказа">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="203.2,41.6"
           Id="Package\Загрузка категории важности заказа\Загрузка из тех таблицы"
           TopLeft="255.6,45.6" />
         <NodeLayout
-          Size="262.4,41.6"
-          Id="Package\Загрузка категории важности заказа\Группировка по категории важности"
-          TopLeft="233.2,121.2" />
-        <EdgeLayout
-          Id="Package\Загрузка категории важности заказа.Paths[Выход источника &quot;OLE DB&quot;]"
-          TopLeft="360.8,87.2">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,34"
-              Start="0,0"
-              End="0,26.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
           Size="238.4,41.6"
           Id="Package\Загрузка категории важности заказа\Выгрузка в категории важности"
           TopLeft="244.8,191.6" />
+        <NodeLayout
+          Size="262.4,41.6"
+          Id="Package\Загрузка категории важности заказа\Группировка по категории важности"
+          TopLeft="233.2,121.2" />
         <EdgeLayout
           Id="Package\Загрузка категории важности заказа.Paths[Выход статистического выражения1]"
           TopLeft="364.2,162.8">
@@ -13474,7 +14257,33 @@ where [refTable].[name] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Загрузка категории важности заказа.Paths[Выход источника &quot;OLE DB&quot;]"
+          TopLeft="360.8,87.2">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34"
+              Start="0,0"
+              End="0,26.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -13493,45 +14302,36 @@ where [refTable].[name] = ?</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Загрузка категории важности заказа\Выгрузка в категории важности">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Загрузка категории покупателей">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="203.2,41.6"
           Id="Package\Загрузка категории покупателей\Загрузка из тех таблицы"
           TopLeft="255.6,45.2" />
         <NodeLayout
-          Size="281.6,41.6"
-          Id="Package\Загрузка категории покупателей\Группировка по сегментам покупателей"
-          TopLeft="220,114" />
-        <EdgeLayout
-          Id="Package\Загрузка категории покупателей.Paths[Выход источника &quot;OLE DB&quot;]"
-          TopLeft="359,86.8">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,27.2"
-              Start="0,0"
-              End="0,19.7">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.7" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
           Size="252,41.6"
           Id="Package\Загрузка категории покупателей\Выгрузка в сегменты покупателей"
           TopLeft="238.4,187.6" />
+        <NodeLayout
+          Size="281.6,41.6"
+          Id="Package\Загрузка категории покупателей\Группировка по сегментам покупателей"
+          TopLeft="220,114" />
         <EdgeLayout
           Id="Package\Загрузка категории покупателей.Paths[Выход статистического выражения1]"
           TopLeft="362.6,155.6">
@@ -13551,7 +14351,33 @@ where [refTable].[name] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Загрузка категории покупателей.Paths[Выход источника &quot;OLE DB&quot;]"
+          TopLeft="359,86.8">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27.2"
+              Start="0,0"
+              End="0,19.7">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.7" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -13559,6 +14385,19 @@ where [refTable].[name] = ?</property>
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\Загрузка категории покупателей\Загрузка из тех таблицы">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Загрузка категории покупателей\Выгрузка в сегменты покупателей">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -13813,41 +14652,19 @@ where [refTable].[name] = ?</property>
     design-time-name="Package\Загрузка покупателей">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="203.2,41.6"
           Id="Package\Загрузка покупателей\Загрузка из тех таблицы"
           TopLeft="215.692315603855,29.1870963252422" />
         <NodeLayout
-          Size="238.4,41.6"
-          Id="Package\Загрузка покупателей\Группировка по пользователям"
-          TopLeft="203.384622844719,109.367740253206" />
-        <EdgeLayout
-          Id="Package\Загрузка покупателей.Paths[Выход источника &quot;OLE DB&quot;]"
-          TopLeft="319.938469224287,70.7870963252422">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,38.5806439279642"
-              Start="0,0"
-              End="0,31.0806439279642">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.0806439279642" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
           Size="213.6,41.6"
           Id="Package\Загрузка покупателей\Выгрузка в пользователей"
           TopLeft="219.692315750574,190.554835778593" />
+        <NodeLayout
+          Size="238.4,41.6"
+          Id="Package\Загрузка покупателей\Группировка по пользователям"
+          TopLeft="203.384622844719,109.367740253206" />
         <EdgeLayout
           Id="Package\Загрузка покупателей.Paths[Выход статистического выражения1]"
           TopLeft="324.538469297646,150.967740253206">
@@ -13867,12 +14684,209 @@ where [refTable].[name] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Загрузка покупателей.Paths[Выход источника &quot;OLE DB&quot;]"
+          TopLeft="319.938469224287,70.7870963252422">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38.5806439279642"
+              Start="0,0"
+              End="0,31.0806439279642">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.0806439279642" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Загрузка покупателей\Загрузка из тех таблицы">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Загрузка покупателей\Выгрузка в пользователей">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Загрузка провинций">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="203.2,41.6"
+          Id="Package\Загрузка провинций\Загрузка из тех таблицы"
+          TopLeft="336.8,46.8" />
+        <NodeLayout
+          Size="222.4,41.6"
+          Id="Package\Загрузка провинций\Группировка по провинциям"
+          TopLeft="327.2,124.8" />
+        <NodeLayout
+          Size="183.2,41.6"
+          Id="Package\Загрузка провинций\Выгрузка провинций"
+          TopLeft="338.8,287.2" />
+        <NodeLayout
+          Size="205.6,41.6"
+          Id="Package\Загрузка провинций\Соединение с регионами"
+          TopLeft="334,204.8" />
+        <EdgeLayout
+          Id="Package\Загрузка провинций.Paths[Выход источника &quot;OLE DB&quot;]"
+          TopLeft="438.4,88.4">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.4"
+              Start="0,0"
+              End="0,28.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Загрузка провинций.Paths[Вывод совпадений преобразования &quot;Уточняющий запрос&quot;]"
+          TopLeft="433.6,246.4">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40.8"
+              Start="0,0"
+              End="0,33.3">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.3" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-134.68986328125,10.65,269.3797265625,12"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Загрузка провинций.Paths[Выход статистического выражения1]"
+          TopLeft="437.6,166.4">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38.3999999999999"
+              Start="0,0"
+              End="0,30.8999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.8999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Загрузка провинций\Загрузка из тех таблицы">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Загрузка провинций\Выгрузка провинций">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Загрузка провинций\Соединение с регионами">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimRegion]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Загрузка продуктов">
     <LayoutInfo>
@@ -13883,8 +14897,8 @@ where [refTable].[name] = ?</property>
           Id="Package\Загрузка продуктов\Соединение с подкатегориями"
           TopLeft="464.8,197.2" />
         <NodeLayout
-          Size="219.2,41.6"
-          Id="Package\Загрузка продуктов\Статистическое выражение"
+          Size="215.2,41.6"
+          Id="Package\Загрузка продуктов\Группировка по продуктам"
           TopLeft="167.2,110.8" />
         <NodeLayout
           Size="203.2,41.6"
@@ -13900,31 +14914,29 @@ where [refTable].[name] = ?</property>
           TopLeft="488.8,277.6" />
         <EdgeLayout
           Id="Package\Загрузка продуктов.Paths[Выход статистического выражения1]"
-          TopLeft="386.4,130">
+          TopLeft="382.4,130">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="72.4,0"
+              EndConnector="76.4,0"
               Start="0,0"
-              End="64.9,0">
+              End="68.9,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="64.9,0" />
+                    End="68.9,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Загрузка продуктов.Paths[Выход источника &quot;OLE DB&quot;]"
-          TopLeft="275.2,82.8">
+          TopLeft="274.2,82.8">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -13941,9 +14953,7 @@ where [refTable].[name] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -13966,7 +14976,7 @@ where [refTable].[name] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-134.68986328125,9.65000000000001,269.3797265625,12"
+              BoundingBox="-134.68986328125,9.65,269.3797265625,12"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -14058,6 +15068,100 @@ where [refTable].[name] = ?</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Загрузка продуктов\Выгрузка в продукты">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Загрузка регионов">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="203.2,41.6"
+          Id="Package\Загрузка регионов\Загрузка из тех таблицы"
+          TopLeft="312.8,59.2" />
+        <NodeLayout
+          Size="179.2,41.6"
+          Id="Package\Загрузка регионов\Выгрузка в регионы"
+          TopLeft="324.4,214.4" />
+        <NodeLayout
+          Size="208.8,41.6"
+          Id="Package\Загрузка регионов\Группировка по регионам"
+          TopLeft="310.4,133.6" />
+        <EdgeLayout
+          Id="Package\Загрузка регионов.Paths[Выход статистического выражения1]"
+          TopLeft="414.4,175.2">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.2"
+              Start="0,0"
+              End="0,31.7">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.7" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Загрузка регионов.Paths[Выход источника &quot;OLE DB&quot;]"
+          TopLeft="414.6,100.8">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32.8"
+              Start="0,0"
+              End="0,25.3">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.3" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Загрузка регионов\Загрузка из тех таблицы">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Загрузка регионов\Выгрузка в регионы">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -14167,7 +15271,7 @@ where [refTable].[name] = ?</property>
     design-time-name="Package\Загрузка технической таблицы продуктов">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="156.8,41.6"
           Id="Package\Загрузка технической таблицы продуктов\Загрузка из csv"
@@ -14195,9 +15299,7 @@ where [refTable].[name] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -14220,41 +15322,19 @@ where [refTable].[name] = ?</property>
     design-time-name="Package\Загрузка типов доставки">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="203.2,41.6"
           Id="Package\Загрузка типов доставки\Загрузка из тех таблицы"
           TopLeft="255.6,45.6" />
         <NodeLayout
-          Size="240.8,41.6"
-          Id="Package\Загрузка типов доставки\Группировка по типам доставок"
-          TopLeft="244,128.4" />
-        <EdgeLayout
-          Id="Package\Загрузка типов доставки.Paths[Выход источника &quot;OLE DB&quot;]"
-          TopLeft="360.8,87.2">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,41.2"
-              Start="0,0"
-              End="0,33.7">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,33.7" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
           Size="210.4,41.6"
           Id="Package\Загрузка типов доставки\Выгрузка в типы доставки"
           TopLeft="255.2,210.4" />
+        <NodeLayout
+          Size="240.8,41.6"
+          Id="Package\Загрузка типов доставки\Группировка по типам доставок"
+          TopLeft="244,128.4" />
         <EdgeLayout
           Id="Package\Загрузка типов доставки.Paths[Выход статистического выражения1]"
           TopLeft="362.4,170">
@@ -14274,7 +15354,33 @@ where [refTable].[name] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Загрузка типов доставки.Paths[Выход источника &quot;OLE DB&quot;]"
+          TopLeft="360.8,87.2">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.2"
+              Start="0,0"
+              End="0,33.7">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.7" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -14282,6 +15388,19 @@ where [refTable].[name] = ?</property>
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\Загрузка типов доставки\Загрузка из тех таблицы">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Загрузка типов доставки\Выгрузка в типы доставки">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -14384,1095 +15503,6 @@ where [refTable].[name] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Загрузка категории покупателей\Выгрузка в сегменты покупателей">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Загрузка категории важности заказа\Выгрузка в категории важности">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Загрузка типов доставки\Выгрузка в типы доставки">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Загрузка покупателей\Загрузка из тех таблицы">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Загрузка покупателей\Выгрузка в пользователей">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Загрузка регионов">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="203.2,41.6"
-          Id="Package\Загрузка регионов\Загрузка из тех таблицы"
-          TopLeft="312.8,59.2" />
-        <NodeLayout
-          Size="208.8,41.6"
-          Id="Package\Загрузка регионов\Группировка по регионам"
-          TopLeft="310.4,133.6" />
-        <EdgeLayout
-          Id="Package\Загрузка регионов.Paths[Выход источника &quot;OLE DB&quot;]"
-          TopLeft="414.6,100.8">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,32.8"
-              Start="0,0"
-              End="0,25.3">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.3" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="179.2,41.6"
-          Id="Package\Загрузка регионов\Выгрузка в регионы"
-          TopLeft="324.4,214.4" />
-        <EdgeLayout
-          Id="Package\Загрузка регионов.Paths[Выход статистического выражения1]"
-          TopLeft="414.4,175.2">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,39.2"
-              Start="0,0"
-              End="0,31.7">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.7" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <TaskHost
-    design-time-name="Package\Загрузка провинций">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="203.2,41.6"
-          Id="Package\Загрузка провинций\Загрузка из тех таблицы"
-          TopLeft="336.8,46.8" />
-        <NodeLayout
-          Size="222.4,41.6"
-          Id="Package\Загрузка провинций\Группировка по провинциям"
-          TopLeft="327.2,124.8" />
-        <EdgeLayout
-          Id="Package\Загрузка провинций.Paths[Выход источника &quot;OLE DB&quot;]"
-          TopLeft="438.4,88.4">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,36.4"
-              Start="0,0"
-              End="0,28.9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="205.6,41.6"
-          Id="Package\Загрузка провинций\Соединение с регионами"
-          TopLeft="334,204.8" />
-        <EdgeLayout
-          Id="Package\Загрузка провинций.Paths[Выход статистического выражения1]"
-          TopLeft="437.6,166.4">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,38.3999999999999"
-              Start="0,0"
-              End="0,30.8999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.8999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="183.2,41.6"
-          Id="Package\Загрузка провинций\Выгрузка провинций"
-          TopLeft="338.8,287.2" />
-        <EdgeLayout
-          Id="Package\Загрузка провинций.Paths[Вывод совпадений преобразования &quot;Уточняющий запрос&quot;]"
-          TopLeft="433.6,246.4">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,40.8"
-              Start="0,0"
-              End="0,33.3">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,33.3" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-134.68986328125,10.65,269.3797265625,12"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Загрузка регионов\Загрузка из тех таблицы">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Загрузка регионов\Выгрузка в регионы">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Загрузка провинций\Загрузка из тех таблицы">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Загрузка провинций\Соединение с регионами">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimRegion]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Загрузка провинций\Выгрузка провинций">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Загрузка даты заказа">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="244,41.6"
-          Id="Package\Загрузка даты заказа\Загрузка данных из тех таблицы"
-          TopLeft="291.2,42" />
-        <NodeLayout
-          Size="213.6,41.6"
-          Id="Package\Загрузка даты заказа\Разделение даты на части"
-          TopLeft="307.6,108" />
-        <EdgeLayout
-          Id="Package\Загрузка даты заказа.Paths[Выход источника &quot;OLE DB&quot;]"
-          TopLeft="413.8,83.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,24.4"
-              Start="0,0"
-              End="0,16.9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="219.2,41.6"
-          Id="Package\Загрузка даты заказа\Статистическое выражение"
-          TopLeft="299.2,180.8" />
-        <EdgeLayout
-          Id="Package\Загрузка даты заказа.Paths[Выход производного столбца]"
-          TopLeft="411.6,149.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,31.2"
-              Start="0,0"
-              End="0,23.7">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.7" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="153.6,41.6"
-          Id="Package\Загрузка даты заказа\Выгрузка даты"
-          TopLeft="334,256.8" />
-        <EdgeLayout
-          Id="Package\Загрузка даты заказа.Paths[Выход статистического выражения1]"
-          TopLeft="409.8,222.4">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,34.4"
-              Start="0,0"
-              End="0,26.9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Загрузка даты заказа\Загрузка данных из тех таблицы">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Загрузка даты заказа\Выгрузка даты">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Загрузка даты разгрузки">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="219.2,41.6"
-          Id="Package\Загрузка даты разгрузки\Статистическое выражение"
-          TopLeft="299.2,180.8" />
-        <NodeLayout
-          Size="213.6,41.6"
-          Id="Package\Загрузка даты разгрузки\Разделение даты на части"
-          TopLeft="307.6,108" />
-        <NodeLayout
-          Size="153.6,41.6"
-          Id="Package\Загрузка даты разгрузки\Выгрузка даты"
-          TopLeft="334,256.8" />
-        <NodeLayout
-          Size="244,41.6"
-          Id="Package\Загрузка даты разгрузки\Загрузка данных из тех таблицы"
-          TopLeft="291.2,42" />
-        <EdgeLayout
-          Id="Package\Загрузка даты разгрузки.Paths[Выход статистического выражения1]"
-          TopLeft="409.8,222.4">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,34.4"
-              Start="0,0"
-              End="0,26.9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Загрузка даты разгрузки.Paths[Выход производного столбца]"
-          TopLeft="411.6,149.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,31.2"
-              Start="0,0"
-              End="0,23.7">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.7" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Загрузка даты разгрузки.Paths[Выход источника &quot;OLE DB&quot;]"
-          TopLeft="413.8,83.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,24.4"
-              Start="0,0"
-              End="0,16.9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Загрузка даты разгрузки\Выгрузка даты">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Загрузка даты разгрузки\Загрузка данных из тех таблицы">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Загрузка заказов">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="203.2,41.6"
-          Id="Package\Загрузка заказов\Загрузка из тех таблицы"
-          TopLeft="104.8,46.8" />
-        <NodeLayout
-          Size="218.4,41.6"
-          Id="Package\Загрузка заказов\Соединение с датой заказа"
-          TopLeft="665.6,47.6000000000001" />
-        <NodeLayout
-          Size="213.6,41.6"
-          Id="Package\Загрузка заказов\Разделение даты на части"
-          TopLeft="383.6,45.6000000000001" />
-        <NodeLayout
-          Size="240,41.6"
-          Id="Package\Загрузка заказов\Соединение с приоритетностью"
-          TopLeft="659.6,126.4" />
-        <EdgeLayout
-          Id="Package\Загрузка заказов.Paths[Вывод совпадений преобразования &quot;Уточняющий запрос&quot;]"
-          TopLeft="777.2,89.2000000000001">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,37.1999999999999"
-              Start="0,0"
-              End="0,29.6999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,29.6999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-134.68986328125,8.84999999999997,269.3797265625,12"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="217.6,41.6"
-          Id="Package\Загрузка заказов\Соединение с покупателем"
-          TopLeft="105.6,120" />
-        <EdgeLayout
-          Id="Package\Загрузка заказов.Paths[Вывод совпадений преобразования &quot;Уточняющий запрос&quot;1]"
-          TopLeft="659.6,144">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-336.4,0"
-              Start="0,0"
-              End="-328.9,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-328.9,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-299.13986328125,5,269.3797265625,12"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="291.2,41.6"
-          Id="Package\Загрузка заказов\Соединение с покупательским сегментом"
-          TopLeft="75.2,213.2" />
-        <NodeLayout
-          Size="203.2,41.6"
-          Id="Package\Загрузка заказов\Выгрузка фактов заказа"
-          TopLeft="654.755555555555,402.355555555556" />
-        <EdgeLayout
-          Id="Package\Загрузка заказов.Paths[Выход источника &quot;OLE DB&quot;]"
-          TopLeft="308,67">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="75.6,0"
-              Start="0,0"
-              End="68.1,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="68.1,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Загрузка заказов.Paths[Вывод совпадений преобразования &quot;Уточняющий запрос&quot;2]"
-          TopLeft="217.6,161.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,51.6000000000001"
-              Start="0,0"
-              End="0,44.1000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,44.1000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-134.68986328125,16.05,269.3797265625,12"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Загрузка заказов.Paths[Выход производного столбца]"
-          TopLeft="597.2,67.4000000000001">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="68.4000000000001,0"
-              Start="0,0"
-              End="60.9000000000001,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="60.9000000000001,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="212,41.6"
-          Id="Package\Загрузка заказов\Соединение с провинцией"
-          TopLeft="658.4,212.4" />
-        <EdgeLayout
-          Id="Package\Загрузка заказов.Paths[Вывод совпадений преобразования &quot;Уточняющий запрос&quot;3]"
-          TopLeft="366.4,233.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="292,0"
-              Start="0,0"
-              End="284.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="284.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="7.56013671875004,5,269.3797265625,12"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="231.2,41.6"
-          Id="Package\Загрузка заказов\Соединение с типом доставки"
-          TopLeft="648,290.8" />
-        <EdgeLayout
-          Id="Package\Загрузка заказов.Paths[Вывод совпадений преобразования &quot;Уточняющий запрос&quot;4]"
-          TopLeft="764,254">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,36.8"
-              Start="0,0"
-              End="0,29.3">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,29.3" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-134.68986328125,8.64999999999998,269.3797265625,12"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="229.6,41.6"
-          Id="Package\Загрузка заказов\Соединение с датой доставки"
-          TopLeft="113.2,289.2" />
-        <EdgeLayout
-          Id="Package\Загрузка заказов.Paths[Вывод совпадений преобразования &quot;Уточняющий запрос&quot;5]"
-          TopLeft="648,310.8">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-305.2,0"
-              Start="0,0"
-              End="-297.7,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-297.7,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-283.53986328125,5,269.3797265625,12"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="364,41.6"
-          Id="Package\Загрузка заказов\Первичное соединение с продуктом (через тех таблицу)"
-          TopLeft="52.7999999999999,370.8" />
-        <EdgeLayout
-          Id="Package\Загрузка заказов.Paths[Вывод совпадений преобразования &quot;Уточняющий запрос&quot;6]"
-          TopLeft="231.4,330.8">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,40"
-              Start="0,0"
-              End="0,32.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,32.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-134.68986328125,10.25,269.3797265625,12"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="360.8,41.6"
-          Id="Package\Загрузка заказов\Вторичное соединение с продуктом (через справочник)"
-          TopLeft="51.7333333333334,452.222222222222" />
-        <EdgeLayout
-          Id="Package\Загрузка заказов.Paths[Вывод совпадений преобразования &quot;Уточняющий запрос&quot;7]"
-          TopLeft="233.466666666667,412.4">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,39.8222222222221"
-              Start="0,0"
-              End="0,32.3222222222221">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,32.3222222222221" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-134.68986328125,10.161111111111,269.3797265625,12"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Загрузка заказов.Paths[Вывод совпадений преобразования &quot;Уточняющий запрос&quot;8]"
-          TopLeft="412.533333333333,473.022222222222">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="242.222222222222,-49.8666666666663"
-              Start="0,0"
-              End="234.722222222222,-49.8666666666663">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="117.111111111111,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="117.111111111111,0"
-                    Point2="121.111111111111,0"
-                    Point3="121.111111111111,-4" />
-                  <mssgle:LineSegment
-                    End="121.111111111111,-45.8666666666663" />
-                  <mssgle:CubicBezierSegment
-                    Point1="121.111111111111,-45.8666666666663"
-                    Point2="121.111111111111,-49.8666666666663"
-                    Point3="125.111111111111,-49.8666666666663" />
-                  <mssgle:LineSegment
-                    End="234.722222222222,-49.8666666666663" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-13.578752170139,1,269.3797265625,12"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Загрузка заказов\Загрузка из тех таблицы">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Загрузка заказов\Соединение с датой заказа">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimOrderDate]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Загрузка заказов\Соединение с приоритетностью">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimOrderPriority]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Загрузка заказов\Соединение с покупателем">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimCustomer]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Загрузка заказов\Соединение с покупательским сегментом">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimCustomerSegment]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Загрузка заказов\Выгрузка фактов заказа">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Загрузка заказов\Соединение с провинцией">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimProvince]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Загрузка заказов\Соединение с типом доставки">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimShipMode]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Загрузка заказов\Соединение с датой доставки">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimShipDate]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Загрузка заказов\Первичное соединение с продуктом (через тех таблицу)">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Trash_Products]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Загрузка заказов\Вторичное соединение с продуктом (через справочник)">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimProduct]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
